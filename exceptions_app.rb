@@ -3,9 +3,9 @@ class ExceptionsController < ActionController::Base
 
   STATUSES.each do |status, _|
     eval <<-RUBY
-    def #{status}
-      render template_exists?(view) ? view : view(:internal_server_error)
-    end
+      def #{status}
+        render template_exists?(view) ? view : view(:internal_server_error)
+      end
     RUBY
   end
 
