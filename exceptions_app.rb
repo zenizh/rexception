@@ -16,7 +16,6 @@ module ExceptionsApp
 
     attr_accessor :layout
     attr_accessor :errors_dir
-    attr_accessor :rescue_responses
 
     def initialize
       defaults.each { |k, v| instance_variable_set("@#{k}", v) }
@@ -26,13 +25,16 @@ module ExceptionsApp
       yield self
     end
 
+    def rescue_responses=(rescue_responses)
+      ActionDispatch::ExceptionWrapper.rescue_responses.merge!(rescue_responses)
+    end
+
     private
 
     def defaults
       @defaults ||= {
         layout:     'application',
-        errors_dir: 'errors',
-        rescue_responses: {}
+        errors_dir: 'errors'
       }
     end
   end
@@ -81,12 +83,16 @@ module ExceptionsApp
 end
 
 ExceptionsApp.setup do |config|
-  config.layout = 'application'
+  # Specify the layout file to use for rendering error page.
+  # config.layout = 'application'
 
-  config.errors_dir = 'errors'
+  # Specify the directory where you place error pages.
+  # config.errors_dir = 'errors'
 
-  config.rescue_responses = {
-  }
+  # Define which of statuses return against custom exceptions.
+  # config.rescue_responses = {
+  #   'CustomException' => :not_found
+  # }
 end
 
 Rails.application.config.exceptions_app = ExceptionsApp::ExceptionsController
