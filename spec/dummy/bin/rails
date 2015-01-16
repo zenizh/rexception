@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+APP_PATH = File.expand_path('../../application', __FILE__)
+
+require 'rails/commands'
