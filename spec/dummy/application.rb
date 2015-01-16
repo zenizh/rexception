@@ -15,8 +15,8 @@ end
 Dummy::Application.initialize!
 
 Dummy::Application.routes.draw do
-  get '/forbidden',             to: 'errors#forbidden'
-  get '/internal_server_error', to: 'errors#internal_server_error'
+  get '/application_error', to: 'errors#application_error'
+  get '/forbidden',         to: 'errors#forbidden'
 end
 
 class CustomException < StandardError
@@ -26,12 +26,12 @@ class ApplicationController < ActionController::Base
 end
 
 class ErrorsController < ApplicationController
-  def forbidden
-    raise CustomException
+  def application_error
+    raise Exception
   end
 
-  def internal_server_error
-    raise Exception
+  def forbidden
+    raise CustomException
   end
 end
 
