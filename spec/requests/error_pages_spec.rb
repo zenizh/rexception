@@ -28,9 +28,9 @@ describe 'ErrorPages' do
 
   context 'access to 500 page' do
     it_behaves_like 'error page', {
-        path: '/internal_server_error',
+        path: '/application_error',
         code: 500,
-        content: 'Internal Server Error'
+        content: 'Application Error'
       }
   end
 end

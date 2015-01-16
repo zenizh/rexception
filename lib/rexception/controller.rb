@@ -5,7 +5,7 @@ module Rexception
     STATUSES.each do |status, code|
       eval <<-RUBY
         def #{status}
-          render template_exists?(view) ? view : view(:internal_server_error), status: #{code}
+          render template_exists?(view) ? view : view(:application), status: #{code}
         end
       RUBY
     end
