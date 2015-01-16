@@ -1,5 +1,3 @@
-# rails-exceptions_app
+# Rexception
 
-Exception handler for Rails application.
-
-This repository is under development.
+This project rocks and uses MIT-LICENSE.
