@@ -1,5 +1,8 @@
 # Rexception
 
+[![Build Status](https://travis-ci.org/kami30k/rexception.svg)](https://travis-ci.org/kami30k/rexception)
+[![Gem Version](https://badge.fury.io/rb/rexception.svg)](http://badge.fury.io/rb/rexception)
+
 Rexception is a Rails plugin that renders error pages dynamically, such as 403, 404, 500, and so on.
 
 ## Installation
