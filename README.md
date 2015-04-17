@@ -27,25 +27,26 @@ That's it, and Rails application render it when raise any errors.
 If you placed specific views, such as `forbidden.html.erb` or `not_found.html.erb`, Rexception prefers these views to `application.html.erb`.
 (File name is see also: [ActionDispatch::ExceptionWrapper.rescue_responses](https://github.com/rails/rails/blob/083f657c0f1990e980d33f89f44d8943a9270475/actionpack/lib/action_dispatch/middleware/exception_wrapper.rb#L9-L19))
 
-And you can specify layout file, errors directory, and custom error handling.
+And you can specify layout file name, directory name to place views, and custom exceptions.
 Create `config/initializers/rexception.rb` and add following lines:
 
 ```ruby
-Rexception.setup do |config|
-  # Specify the layout file to use for rendering error page.
-  # config.layout = 'application'
+Rexception.configure do |config|
+  # Layout file name to use for rendering error page.
+  config.layout = 'application'
 
-  # Specify the directory where you place error pages.
-  # config.errors_dir = 'errors'
+  # Directory name where you place error pages.
+  config.errors_dir = 'errors_dir'
 
-  # Define which of statuses return against custom exceptions.
-  # config.rescue_responses = {
-  #   'CustomException' => :not_found
-  # }
+  # Pairs of custom exceptions and statuses.
+  config.rescue_responses = {
+    'CustomException' => :not_found
+  }
 end
+
 ```
 
-In `development` mode, you should add this line to `config/environments/development.rb` to confirm error page:
+In `development` mode, you should add this line to `config/environments/development.rb` to render error pages:
 
 ```ruby
 config.consider_all_requests_local = false
