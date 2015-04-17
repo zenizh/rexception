@@ -10,20 +10,24 @@ module Rexception
       RUBY
     end
 
-    layout -> { setting.layout }
+    layout -> { layout }
 
     private
 
     def view(status = status())
-      "#{setting.errors_dir}/#{status}"
+      "#{errors_dir}/#{status}"
     end
 
     def status
       self.class.status(env)
     end
 
-    def setting
-      Rexception.setting
+    def layout
+      Rexception.layout
+    end
+
+    def errors_dir
+      Rexception.errors_dir
     end
 
     class << self
