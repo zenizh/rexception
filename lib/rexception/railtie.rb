@@ -1,5 +1,3 @@
-require 'rails'
-
 module Rexception
   class Railtie < Rails::Railtie
     initializer 'rexception' do |app|

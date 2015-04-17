@@ -37,7 +37,7 @@ class ErrorsController < ApplicationController
   end
 end
 
-Rexception.setup do |config|
+Rexception.configure do |config|
   config.layout = 'layout'
 
   config.errors_dir = 'errors_dir'
