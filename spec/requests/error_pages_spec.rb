@@ -1,36 +1,24 @@
 require 'spec_helper'
 
-describe 'ErrorPages' do
-  shared_examples_for 'error page' do |path:, code:, content:|
+describe 'Error pages' do
+  shared_examples_for 'error page' do |path, code, content|
     it "should return #{code}" do
       visit path
 
-      expect(page.status_code).to eq(code)
-      expect(page).to have_content(content)
+      expect(page.status_code).to eq code
+      expect(page).to have_content content
     end
   end
 
   context 'access to 403 page' do
-    it_behaves_like 'error page', {
-        path: '/forbidden',
-        code: 403,
-        content: 'Forbidden'
-      }
+    it_behaves_like 'error page', '/forbidden', 403, 'Forbidden'
   end
 
   context 'access to 404 page' do
-    it_behaves_like 'error page', {
-        path: '/not_found',
-        code: 404,
-        content: 'Not Found'
-      }
+    it_behaves_like 'error page', '/not_found', 404, 'Not Found'
   end
 
   context 'access to 500 page' do
-    it_behaves_like 'error page', {
-        path: '/application_error',
-        code: 500,
-        content: 'Application Error'
-      }
+    it_behaves_like 'error page', '/application_error', 500, 'Application Error'
   end
 end
