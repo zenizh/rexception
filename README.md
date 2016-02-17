@@ -1,6 +1,6 @@
 # Rexception
 
-[![Build Status](https://travis-ci.org/kami30k/rexception.svg)](https://travis-ci.org/kami30k/rexception)
+[![Build Status](https://travis-ci.org/kami-zh/rexception.svg)](https://travis-ci.org/kami-zh/rexception)
 [![Gem Version](https://badge.fury.io/rb/rexception.svg)](http://badge.fury.io/rb/rexception)
 
 Rexception is a Rails plugin that renders error pages dynamically, such as 403, 404, 500, and so on.
@@ -54,7 +54,7 @@ config.consider_all_requests_local = false
 
 ## Contributing
 
-1. Fork it ( https://github.com/kami30k/rexception/fork )
+1. Fork it ( https://github.com/kami-zh/rexception/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)

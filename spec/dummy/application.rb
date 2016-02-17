@@ -2,7 +2,6 @@ $:.unshift File.expand_path('../../../lib', __FILE__)
 
 require 'action_controller/railtie'
 require 'action_view/railtie'
-
 require 'rexception'
 
 module Dummy

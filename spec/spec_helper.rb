@@ -1,5 +1,4 @@
 require 'dummy/application'
-
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
